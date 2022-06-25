@@ -85,7 +85,7 @@ LOGOUT_REDIRECT_URL = "/"
 
 # SECURE_SSL_REDIRECT = True  # for https
 
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATIC_URL = "/static/"
 
 # Media files
