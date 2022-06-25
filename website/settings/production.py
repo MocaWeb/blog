@@ -4,7 +4,7 @@ from .base import *
 
 import django_heroku
 
-SECRET_KEY = os.environ.get("SECRET_KEY", "")
+SECRET_KEY = os.environ.get("SECRET_KEY", "0hgq)139a$a!9+$gh^y2#qdtrl)h#lf*u&5(uwz@#82^)-hrbz")
 
 DEBUG = True
 
