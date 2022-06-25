@@ -1,6 +1,0 @@
-*.pyc
-*~
-__pycache__
-blog/migrations
-env
-.vscode

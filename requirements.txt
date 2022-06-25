@@ -7,7 +7,7 @@ Django==2.1.10
 django-classy-tags==0.8.0
 django-heroku==0.3.1
 django-markdownx==2.0.25
-django-taggit==0.23.0
+django-taggit==3.0.0
 django-taggit-templatetags2==1.6.1
 djangorestframework==3.9.1
 docutils==0.14
@@ -17,7 +17,6 @@ markdown2==2.3.5
 Pillow==5.2.0
 psycopg2==2.8.2
 pytz==2018.5
-
 toml==0.10.0
 whitenoise==4.1.2
 django-summernote==0.8.20.0
