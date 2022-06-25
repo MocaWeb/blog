@@ -30,6 +30,7 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="posts")
     title = models.CharField(max_length=300)
     slug = models.SlugField(max_length=300, unique_for_date="published_date")
+    description = models.CharField(max_length=400, blank=True)
     content = models.TextField() 
     published_date = models.DateTimeField(auto_now=True)
     allow_comments = models.BooleanField(default=True)

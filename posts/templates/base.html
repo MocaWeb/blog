@@ -39,20 +39,8 @@
             <a class="h1 text-dark blog-title" href="/">Django Blog</a>           
         </header>
 
-        {% block nav-content %}
-        {% if categories %}
-        <div class="container my-4">
-            <ul class="list-unstyled list-inline text-center h5 font-weight-bold">
-            {% for category in categories %}
-                <li class="list-inline-item">
-                    <a href="{% url 'posts:category' name=category.name %}">{{ category.name }}</a>
-                </li>
-            {% endfor %}
-            </ul>
-        </div>
-        {% endif %}
-        {% endblock %}
-
+    
+<br>
         {% block editor-panel %}
         <!-- AUTHENTICATED USER WITH PERMISSIONS PANEL -->
         {% if user.is_authenticated and perms.posts.add_post %}
@@ -104,7 +92,9 @@
                                 {% endfor %}
                             </ul>
                         </p>
+                    
                     </div>
+   
                     <div class="col-md-4">
                         <i class="fas fa-archive"></i>&nbsp;<b>Archives</b>
                         <ul class="list-unstyled mt-2">
@@ -128,31 +118,32 @@
                             </ul>
                         </p>
                     </div>
+                
                     <div class="col-md-4">
-                        <i class="fas fa-info-circle"></i>&nbsp;<b>About</b>
-                        <p>
-                            Vestibulum congue risus ornare, dictum nunc ut, venenatis ex. Fusce rhoncus, tellus quis mattis egestas, nunc justo luctus nibh, ultrices auctor orci orci ac ligula.
-                        </p>
-                        {% if user.is_authenticated %}
-                            <div class="text-center">
-                                <div class="btn-group btn-group-sm" role="group">
-                                    <a href="/" type="button" class="btn btn-success active"><b>{{ user.username.capitalize }}</b> <i class="fas fa-user"></i></button>
-                                    <a href="{% url 'accounts:logout' %}?next={{ request.path | urlencode }}" class="btn btn-warning">Logout <i class="fas fa-sign-out-alt"></i></a>
+                        <p class="mt-4">
+                            <i class="fas fa-clock"></i>&nbsp;<b>Categorias</b>
+                            <ul class="list-unstyled mt-2">
+                                {% block nav-content %}
+                                {% if categories %}
+                                <div class="container my-4">
+                                    <ul class="list-unstyled mt-2">
+                                    {% for category in categories %}
+                                 
+                                        <li >
+                                            &raquo;&nbsp;<a href="{% url 'posts:category' name=category.name %}">{{ category.name }}</a>
+                                        </li>
+                                    {% endfor %}
+                                    </ul>
                                 </div>
-                            </div>
-                        {% else %}
-                        <div class="text-center">
-                            <div class="btn-group btn-group-sm" role="group">
-                                <a href="{% url 'accounts:login' %}?next={{ request.path | urlencode }}" class="btn btn-secondary">Sign In <i class="fas fa-sign-in-alt"></i></a>
-                                <a href="{% url 'accounts:signup' %}" class="btn btn-outline-secondary">Sign Up <i class="fas fa-user-plus"></i></a>
-                            </div>
-                        </div>
-                        {% endif %}
+                                {% endif %}
+                                {% endblock %}
+                            </ul>
+                        </p>
                     </div>
                 </div>
                 {% endblock %}
                 <p class="mt-4 mx-0 text-center text-dark">
-                    Copyright &copy; {% now "Y" %} by Author<br>
+                    Copyright &copy; {% now "Y" %} by MocaWeb<br>
                     <a href="{% url 'contact:email-form' %}">Contact</a>&nbsp;<a href="{% url 'feed' %}">Subscribe</a><br>
                     <a href="#">Back to top</a>
                 </p>
