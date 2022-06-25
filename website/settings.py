@@ -59,6 +59,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "website.wsgi.application"
 
+DATABASES = {
+
+  'default': {
+       'ENGINE': 'django.db.backends.sqlite3',
+       'NAME': 'db.sqlite3',
+   }
+
+}
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
