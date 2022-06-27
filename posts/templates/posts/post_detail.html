@@ -23,6 +23,9 @@
         </div>
     </div>
     <hr>
+    <div class="blog-post" style="text-decoration:wavy;">
+        {{ post.description|safe }}
+    </div>
     <div class="blog-post">
         {{ post.content|safe }}
     </div>
@@ -35,18 +38,15 @@
                 <a href="{% url 'posts:tag' tag=tag_name %}">{{ tag_name }}</a>
             {% endfor %}
         </div>
-
+<!-- 
         <div>
             <a href=""><i class="fab fa-twitter px-2"></i></a>
             <a href=""><i class="fab fa-facebook-f px-2"></i></a>
             <a href=""><i class="fab fa-instagram px-2"></i></a>
             <a href=""><i class="fab fa-pinterest px-2"></i></a>
         </div>
-        <!-- <div>
-            <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}"><i class="fab fa-facebook-f"></i></a>,
-            <a href="https://twitter.com/home?status={{ parsed_content }}%20{{ request.build_absolute_uri }}"><i class="fab fa-twitter"></i></a>,
-            <a href="https://plus.google.com/share?url={{ request.build_absolute_uri }}"><i class="fab fa-google-plus-g"></i></a>
-        </div> -->
+        -->
+
 
         <!-- Post actions for authenticated users -->
         {% if user.is_authenticated and post.author.username == request.user.username %}

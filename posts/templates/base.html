@@ -35,18 +35,25 @@
     }(document, 'script', 'facebook-jssdk'));</script>
     {% include 'posts/navbar.html' %}  
     <div class="container">
-        <header class="container mt-4 text-center">
-            <a class="h1 text-dark blog-title" href="/">Django Blog</a>           
-        </header>
-
+        <div class="row mt-4" >
+            <div class="col-md-4" style="display: block; margin:auto; text-align:center;">
+        <form method="GET" action="{% url 'posts:search' %}">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search..." name="q">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </form>
+</div>
+</div>
     
-<br>
+<br><hr>
+<!-- 
         {% block editor-panel %}
-        <!-- AUTHENTICATED USER WITH PERMISSIONS PANEL -->
+  
         {% if user.is_authenticated and perms.posts.add_post %}
-        <!-- it's enough to check permissions for adding posts; 
-            changing and deleting is implied
-        -->
+      
         <div class="container my-4">
             <hr>
             <ul class="list-unstyled list-inline text-center font-weight-bold">
@@ -59,7 +66,7 @@
         </div>
         {% endif %}
         {% endblock %}
-
+-->
         <main class="container">
             <!-- MAIN CONTENT -->
             {% block content %} {% endblock %}
@@ -72,14 +79,7 @@
                 {% block footer-content %}
                 <div class="row mt-4">
                     <div class="col-md-4">
-                        <form method="GET" action="{% url 'posts:search' %}">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search..." name="q">
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" type="button"><i class="fas fa-search"></i></button>
-                                </div>
-                            </div>
-                        </form>
+                       
                         <p class="mt-4">
                             <i class="fas fa-clock"></i>&nbsp;<b>Recent posts</b>
                             <ul class="list-unstyled mt-2">
@@ -120,32 +120,16 @@
                     </div>
                 
                     <div class="col-md-4">
-                        <p class="mt-4">
-                            <i class="fas fa-clock"></i>&nbsp;<b>Categorias</b>
-                            <ul class="list-unstyled mt-2">
-                                {% block nav-content %}
-                                {% if categories %}
-                                <div class="container my-4">
-                                    <ul class="list-unstyled mt-2">
-                                    {% for category in categories %}
-                                 
-                                        <li >
-                                            &raquo;&nbsp;<a href="{% url 'posts:category' name=category.name %}">{{ category.name }}</a>
-                                        </li>
-                                    {% endfor %}
-                                    </ul>
-                                </div>
-                                {% endif %}
-                                {% endblock %}
-                            </ul>
+                        <i class="fas fa-info-circle"></i>&nbsp;<b>About</b>
+                        <p>
+                            Vestibulum congue risus ornare, dictum nunc ut, venenatis ex. Fusce rhoncus, tellus quis mattis egestas, nunc justo luctus nibh, ultrices auctor orci orci ac ligula.
                         </p>
                     </div>
                 </div>
                 {% endblock %}
                 <p class="mt-4 mx-0 text-center text-dark">
                     Copyright &copy; {% now "Y" %} by MocaWeb<br>
-                    <a href="{% url 'contact:email-form' %}">Contact</a>&nbsp;<a href="{% url 'feed' %}">Subscribe</a><br>
-                    <a href="#">Back to top</a>
+           
                 </p>
             </div>
         </footer>
