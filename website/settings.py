@@ -9,7 +9,7 @@ SECRET_KEY = "0hgq)139a$a!9+$gh^y2#qdtrl)h#lf*u&5(uwz@#82^)-hrbz"
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['*', 'walrus-app-nqm4q.ondigitalocean.app',]
+ALLOWED_HOSTS = ['*', 'walrus-app-nqm4q.ondigitalocean.app', 'realdjango.online',]
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
